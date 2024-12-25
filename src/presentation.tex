@@ -188,14 +188,24 @@
     \section{Riptide presentation}
 
         \begin{frame}{Torpedo Model}
-            \begin{minipage}[t]{.48\textwidth}
+            \begin{minipage}[c]{.48\textwidth}
+                \onslide<+->{
+                    \begin{figure}
+                        \centering
+                        \includegraphics[width=.9\textwidth,trim={0 4cm 0 8cm},clip]{imgs/riptide_pontoon.jpg}
+                        \caption{Riptide}
+                    \end{figure}
+                }
+                \vspace{-5mm}
                 \begin{block}<+->{Controlled physical quantities}
-                    \vspace{2.5mm}
                     \begin{itemize}
                         \item Linear acceleration $\mathbf{a_r}$
                         \item angular velocity $\mathbf{\omega_r}$
                     \end{itemize}
                 \end{block}
+            \end{minipage}
+            \hfill
+            \begin{minipage}[c]{.48\textwidth}
                 \begin{block}<+->{Robot's inputs}
                     \centering
                     Input vector of the system is $\mathbf{u} = (u_0, u_1, u_2, u_3)^T$, where:
@@ -204,22 +214,11 @@
                         \item $u_1, u_2, u_3$: fin angles
                     \end{itemize}
                 \end{block}
-            \end{minipage}
-            \hfill
-            \begin{minipage}[t]{.48\textwidth}
                 \begin{block}<+->{Torpedo velocity}
-                    \vspace{2.5mm}
                     \begin{equation}
                         \mathbf{v_r} = (v_r, 0, 0)^T
                     \end{equation}
                 \end{block}
-                \onslide<+->{
-                    \begin{figure}
-                        \centering
-                        \includegraphics[width=.9\textwidth,trim={0 4cm 0 8cm},clip]{imgs/riptide_pontoon.jpg}
-                        \caption{Riptide}
-                    \end{figure}
-                }
             \end{minipage}
         \end{frame}
 
@@ -788,7 +787,7 @@
                                 x unit=\si{\s},
                                 y unit=\si{\m},
                             ]
-                            \addplot[RoyalBlue] table [x expr={\fpeval{\thisrow{pressure_stamp} - 1681203552.}}, y=depth, col sep=comma] {data/simulation.csv};
+                            \addplot[RoyalBlue] table [x expr={\fpeval{\thisrow{stamp} - 1686731143.}}, y=depth, col sep=comma] {data/simulation/simulation_pressure.csv};
                         \end{axis}
 
                         \begin{axis}[
@@ -801,8 +800,8 @@
                                 x unit=\si{\s},
                                 y unit=\si{\radian},
                             ]
-                            \addplot[Dandelion] table [x expr={\fpeval{\thisrow{time} - 1681203552.}}, y=p_fin, col sep=comma] {data/simulation.csv};
-                            \addplot[RubineRed] table [x expr={\fpeval{\thisrow{time} - 1681203552.}}, y=s_fin, col sep=comma] {data/simulation.csv};
+                            \addplot[Dandelion] table [x expr={\fpeval{\thisrow{stamp} - 1686731143.}}, y=p_fin, col sep=comma] {data/simulation/simulation_actuators.csv};
+                            \addplot[RubineRed] table [x expr={\fpeval{\thisrow{stamp} - 1686731143.}}, y=s_fin, col sep=comma] {data/simulation/simulation_actuators.csv};
                         \end{axis}
 
                         \begin{axis}[
@@ -814,7 +813,7 @@
                                 x unit=\si{\s},
                                 y unit=\si{\pascal},
                             ]
-                            \addplot[RoyalPurple] table [x expr={\fpeval{\thisrow{pressure_stamp} - 1681203552.}}, y=pressure, col sep=comma] {data/simulation.csv};
+                            \addplot[RoyalPurple] table [x expr={\fpeval{\thisrow{stamp} - 1686731143.}}, y=pressure, col sep=comma] {data/simulation/simulation_pressure.csv};
                         \end{axis}
 
                         \begin{axis}[
@@ -826,7 +825,7 @@
                                 x unit=\si{\s},
                                 y unit=\si{\deg},
                             ]
-                            \addplot[ForestGreen] table [x expr={\fpeval{\thisrow{time} - 1681203552.}}, y=/riptide_1/imu_broadcaster/imu_status/orientation/pitch_deg, col sep=comma] {data/simulation.csv};
+                            \addplot[ForestGreen] table [x expr={\fpeval{\thisrow{stamp} - 1686731143.}}, y=pitch_deg, col sep=comma] {data/simulation/simulation_imu.csv};
                         \end{axis}
                     \end{tikzpicture}
                     \caption{Mission simulation}
@@ -1057,7 +1056,49 @@
                 \end{minipage}
             \end{frame}
 
-    \section{Conclusion}
+    \section{Perspectives}
+
+        \begin{frame}{Thesis structure}
+            \begin{minipage}[c]{.48\textwidth}
+                \begin{block}<+->{First year}
+                    \vspace{2.5mm}
+                    \begin{itemize}
+                        \item Software architecture
+                        \item Hardware architecture
+                        \item Riptide simulation
+                        \item Riptide control
+                    \end{itemize}
+                \end{block}
+                \begin{block}<+->{Second year}
+                    \begin{itemize}
+                        \item Trials
+                        \item Riptide navigation
+                        \item Hardware refactoring
+                    \end{itemize}
+                \end{block}
+            \end{minipage}
+            \hfill
+            \begin{minipage}[c]{.48\textwidth}
+                \begin{block}<+->{Third year}
+                    \vspace{2.5mm}
+                    \begin{itemize}
+                        \item Trials
+                        \item Thesis redaction
+                    \end{itemize}
+                \end{block}
+                \begin{block}<+->{Talks}
+                    \begin{itemize}
+                        \item 6 talks workshops / seminars
+                    \end{itemize}
+                \end{block}
+                \begin{block}<+->{Doctoral school courses}
+                    \begin{itemize}
+                        \item 50/100 hours
+                        \item Ethical courses / Open science courses
+                    \end{itemize}
+                \end{block}
+            \end{minipage}
+        \end{frame}
 
         % \begin{frame}{Conclusion}
         %     \centering
